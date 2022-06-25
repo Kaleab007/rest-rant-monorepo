@@ -67,6 +67,8 @@ function SignUpForm() {
 							name="email"
 						/>
 					</div>
+					<div className="col-sm-6 form-group">
+						<label htmlFor="password">Password</label>
 				</div>
 				<input className="btn btn-primary" type="submit" value="Sign Up" />
 			</form>
