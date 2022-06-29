@@ -60,6 +60,7 @@ if (currentUser?.role === 'admin') {
                         Add Place
                     </a>
                 </li>
+                {addPlaceButton}
                 {loginActions}
             </ul>
         </nav>
