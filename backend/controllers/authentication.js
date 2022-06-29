@@ -5,19 +5,31 @@ const { where } = require('sequelize/types')
 
 const { User } = db
 
-router.get('/profile', async (req, res) => {try {
+router.post('/', async (req, res) => {
     let user = await user.findOne({
-   where: {
-    userId:
-}
-}) 
-res.json(user)
-} catch {
-    res.json(null)
-}
+   where: { email :req.body.email}
+})
+if (!user || !await bcrypt.compare(req.body.password, user.passwordDigest)) {res.status(404).json ({
+    message: `Could not find a user with the provided username and password`
+})
+}else
+
+ res.json({User})
 })
 
 
+router.get('/profile', async (req, res) => {
+    try {
+        let user = await User.findOne({
+            where: {
+                userId:  
+            }
+        })
+        res.json(user)
+    } catch {
+        res.json(null)
+    }
+})
 
 
 module.exports = router
